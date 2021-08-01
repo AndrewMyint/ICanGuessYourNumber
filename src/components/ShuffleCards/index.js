@@ -70,7 +70,7 @@ const index = (props) => {
         // console.log("toogleBtn: ", toogleBtn);
         // let tempHead = changedHead(curHead, 2);
         // let newDeck = takeBackTheCards(tempHead);
-        // console.log("newDeck: ", newDeck);
+        console.log("newDeck: ", newDeck);
         setResult(newDeck[10]);
       }
 
@@ -98,6 +98,7 @@ const index = (props) => {
   };
 
   const handleChooseGroup = (e, group) => {
+    console.log("Choose Group: ", group);
     let count = toogleBtn + 1;
     e.preventDefault();
     setCurGroup(parseInt(group));
