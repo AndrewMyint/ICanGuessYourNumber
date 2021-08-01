@@ -8,19 +8,19 @@ export default function Home() {
       style={{ backgroundColor: "#1f2123" }}
     >
       <Head>
-        <title>MAGIC NUMBER</title>
+        <title>I can guess your number </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className=" px-20">
         <div className="p-5 flex flex-col w-full text-center">
           <h1 className="font-sans text-3xl font-normal tracking-wider">
-            Number Guessing Magic
+            I Can Guess Your Number
           </h1>
           <span className="text-sm text-white text-opacity-60">
             Built by{" "}
             <a
-              href="https://www.linkedin.com/in/andrew-myint/"
+              href="https://github.com/AndrewMyint/iCanGuessYourNumber"
               className="underline hover:text-gray-100"
             >
               @AndrewMyint
