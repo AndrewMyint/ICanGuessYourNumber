@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import { motion } from "framer-motion";
 
 const Grid = styled.div`
-  ${tw`py-10 grid grid-cols-7 gap-5`}
+  ${tw`py-8 sm:py-10 grid grid-cols-7 gap-2 sm:gap-5`}
 `;
 
 const Mark = styled.mark`

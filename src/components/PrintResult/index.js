@@ -4,7 +4,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const H1 = styled.h1`
-  ${tw`my-10 text-lg font-sans tracking-wide font-light text-center`}
+  ${tw`my-10 text-lg md:text-2xl lg:text-3xl font-sans tracking-wide font-light text-center`}
 `;
 
 const index = (props) => {

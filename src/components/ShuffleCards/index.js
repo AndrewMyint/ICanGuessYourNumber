@@ -9,16 +9,15 @@ const Flex = styled.div`
   ${tw`flex flex-row`}
 `;
 
-const GridItems = styled.div`
-  ${tw`grid grid-cols-2 gap-5`}
-`;
-
 const GroupCol = styled.div`
-  ${tw`mx-10 grid grid-rows-1 gap-4 `}
+  ${tw`mx-2 sm:mx-5`}
+`;
+const GridItems = styled.div`
+  ${tw`grid grid-cols-2 gap-2 sm:gap-5`}
 `;
 
 const H1 = styled.h1`
-  ${tw`text-lg font-sans tracking-wide font-light text-center`}
+  ${tw` text-sm md:text-lg lg:text-2xl font-sans tracking-wide font-light text-center my-7 sm:my-10`}
 `;
 
 const Icon = styled.div`
