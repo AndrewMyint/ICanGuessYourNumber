@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Game from "../src/Game";
-
+//bg-blue-500 sm:bg-yellow-400 md:bg-green-400 lg:bg-red-400 xl:bg-gray-500
 export default function Home() {
   return (
     <div
-      className="w-full min-h-screen  text-white bg-blue-500 sm:bg-yellow-400 md:bg-green-400 lg:bg-red-400 xl:bg-gray-500"
-      // style={{ backgroundColor: "#1f2123" }}
+      className="w-full min-h-screen  text-white "
+      style={{ backgroundColor: "#1f2123" }}
     >
       <Head>
         <title>I can guess your number </title>
