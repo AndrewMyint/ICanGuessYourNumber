@@ -17,7 +17,7 @@ const GridItems = styled.div`
 `;
 
 const H1 = styled.h1`
-  ${tw` text-sm md:text-lg lg:text-2xl font-sans tracking-wide font-light text-center my-7 sm:my-10`}
+  ${tw` text-sm md:text-lg  font-sans tracking-wide font-light text-center my-7 sm:my-10`}
 `;
 
 const Icon = styled.div`
