@@ -4,7 +4,7 @@ import Game from "../src/Game";
 export default function Home() {
   return (
     <div
-      className="w-full min-h-screen  text-white "
+      className="w-full min-h-screen min-w-2xl text-white "
       style={{ backgroundColor: "#1f2123" }}
     >
       <Head>
@@ -27,12 +27,12 @@ export default function Home() {
             </a>
           </span>
         </div>
-        <div className="pt-12 sm:pt-18  flex flex-col w-full items-center justify-center">
+        <div className="pt-4 sm:pt-10  flex flex-col w-full items-center justify-center">
           <Game />
         </div>
       </main>
 
-      <footer className="absolute bottom-1 sm:bottom-8 flex items-center justify-center w-full h-10 text-xs sm:text-sm md:text-md  text-white text-opacity-60">
+      <footer className="flex items-center justify-center w-full h-10 text-xs sm:text-sm md:text-md  text-white text-opacity-60">
         <div className="text-center">
           <span>Built with </span>{" "}
           <a

@@ -16,8 +16,8 @@ const GridItems = styled.div`
   ${tw`grid grid-cols-2 gap-2 sm:gap-5`}
 `;
 
-const H1 = styled.h1`
-  ${tw` text-sm md:text-lg  font-sans tracking-wide font-light text-center my-7 sm:my-10`}
+const H1 = styled.div`
+  ${tw` text-sm md:text-lg  font-sans tracking-wide font-light text-center my-5 sm:my-8`}
 `;
 
 const Icon = styled.div`
@@ -47,28 +47,14 @@ const index = (props) => {
 
   useEffect(() => {
     if (curGroup !== null) {
-      console.log(
-        "============================================================================================"
-      );
-
-      console.log("oldHead: ", curHead);
       let tempHead = changedHead(curHead, curGroup);
-      console.log("changedHead: ", tempHead);
       let newDeck = takeBackTheCards(tempHead);
       setCurDeck(newDeck);
-      console.log("takeBackCard: ", newDeck);
       let newHead = distributeCard(newDeck);
-      console.log("distributeCard: ", newHead);
+
       setCurHead(newHead);
       generateGroup(newHead);
-      console.log("toogleBtn: ", toogleBtn);
-      console.log(
-        "============================================================================================"
-      );
       if (toogleBtn === 3) {
-        // console.log("toogleBtn: ", toogleBtn);
-        // let tempHead = changedHead(curHead, 2);
-        // let newDeck = takeBackTheCards(tempHead);
         console.log("newDeck: ", newDeck);
         setResult(newDeck[10]);
       }
@@ -97,21 +83,30 @@ const index = (props) => {
   };
 
   const handleChooseGroup = (e, group) => {
-    console.log("Choose Group: ", group);
     let count = toogleBtn + 1;
     e.preventDefault();
     setCurGroup(parseInt(group));
     setToogleBtn(count);
-    // console.log("handleChooseGroup: ", count);
-    // if (gameState + 1 === 5) {
-    //   setResult(curDeck[10]);
-    // }
-    // setGameState(gameState + 1);
+  };
+  const generateTitle = (toogleBtn) => {
+    let text = "";
+    switch (toogleBtn) {
+      case 1:
+        text = "One more time, which group has your number?";
+        break;
+      case 2:
+        text = "One last time, which group has your number?";
+        break;
+      default:
+        text = "Which group has your number?";
+        break;
+    }
+    return text;
   };
 
   return (
     <div>
-      <Title className="">Which group has your number?</Title>
+      <Title className="">{generateTitle(toogleBtn)}</Title>
       <Flex>
         <GroupCol>
           <H1>Group 1</H1>

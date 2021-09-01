@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Title, Card } from "../../GlobalStyle";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { motion } from "framer-motion";
 
 const Grid = styled.div`
   ${tw`py-8 sm:py-10 grid grid-cols-7 gap-2 sm:gap-5`}
@@ -21,8 +20,7 @@ const index = (props) => {
   return (
     <div>
       <Title>
-        Please pick <Mark>one</Mark> number, and keep it in your mind, then go
-        to "Next".
+        Memorize <Mark>one</Mark> number in your mind, then go to "Next".
       </Title>
       <Grid>
         {initialNumbers.map((value, i) => (

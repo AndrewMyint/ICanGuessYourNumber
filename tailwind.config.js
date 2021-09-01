@@ -22,6 +22,19 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      keyframes: {
+        fade: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
+      },
+      animation: {
+        fade: "fade 1s ease-in-out",
+      },
       colors: {
         custom_gray: {
           darkest: "#1f2123",

@@ -5,8 +5,6 @@ import StartGame from "./components/StartGame/index";
 import PrintResult from "./components/PrintResult/index";
 import { createDeck } from "./helper";
 
-// const initialNumbers = createDeck();
-
 const Game = () => {
   const [gameState, setGameState] = useState(1);
   const [initialNumbers, setInitialNumbers] = useState([]);
@@ -22,14 +20,6 @@ const Game = () => {
 
   return (
     <section className="h-full">
-      {/* {gameState === 0 ? (
-        <StartGame
-          handleOnClick={handleOnClick}
-          setInitialNumbers={setInitialNumbers}
-        />
-      ) : (
-        ""
-      )} */}
       {gameState === 1 ? (
         <InitialCards
           initialNumbers={initialNumbers}
