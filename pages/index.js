@@ -9,6 +9,13 @@ export default function Home() {
     >
       <Head>
         <title>I can guess your number </title>
+        <meta property="og:title" content="I can guess your number" />
+        <meta
+          name="image"
+          property="og:image"
+          content="%PUBLIC_URL%/icanguessyournumber.png"
+        />
+        <meta name="author" content="Example Author" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
