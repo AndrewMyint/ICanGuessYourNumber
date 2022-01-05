@@ -13,7 +13,7 @@ export default function Home() {
         <meta
           name="image"
           property="og:image"
-          content="%PUBLIC_URL%/icanguessyournumber.png"
+          content="/icanguessyournumber.png"
         />
         <meta name="author" content="Example Author" />
         <link rel="icon" href="/favicon.ico" />
