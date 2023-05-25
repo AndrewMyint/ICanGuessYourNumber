@@ -14,7 +14,7 @@ const Mark = styled.mark`
   font: bold;
 `;
 
-const text = 'Memorize a number in your mind, then go to "Next".';
+const text = "Memorize a number in your mind, then proceed to the next step.";
 
 const index = (props) => {
   const { handleOnClick, initialNumbers } = props;

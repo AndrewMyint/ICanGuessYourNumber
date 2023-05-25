@@ -112,7 +112,7 @@ const index = (props) => {
         text = "One last time, which group has your number?";
         break;
       default:
-        text = "Which group has your number?";
+        text = "Which group does your number belong to?";
         break;
     }
     return (
