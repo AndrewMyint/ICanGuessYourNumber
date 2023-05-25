@@ -106,13 +106,13 @@ const index = (props) => {
     let text = "";
     switch (toogleBtn) {
       case 1:
-        text = "One more time, which group has your number?";
+        text = "One more time, in which group does your number belong?";
         break;
       case 2:
         text = "One last time, which group has your number?";
         break;
       default:
-        text = "Which group does your number belong to?";
+        text = "In which group does your number belong?";
         break;
     }
     return (

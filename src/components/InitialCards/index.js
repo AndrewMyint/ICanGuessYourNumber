@@ -14,7 +14,8 @@ const Mark = styled.mark`
   font: bold;
 `;
 
-const text = "Memorize a number in your mind, then proceed to the next step.";
+const text =
+  "Pick a number in your head, and go on. I'll eventually be able to predict your number, though.";
 
 const index = (props) => {
   const { handleOnClick, initialNumbers } = props;
