@@ -81,12 +81,3 @@ export const takeBackTheCards = (head) => {
   } while (temp != head);
   return deck;
 };
-
-// for (var i = 0; i < 4; i++) {
-//   var head = distributeCard(deck);
-//   print(head);
-//   console.log("\nWhich Group has your card? ");
-//   let group = scanf("%d");
-//   head = changeHead(head, group);
-//   deck = takeBackTheCards(head);
-// }

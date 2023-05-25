@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { distributeCard, changedHead, takeBackTheCards } from "../../helper";
 import { Button, Title, Card } from "../../GlobalStyle";
 import { CheckIcon } from "@heroicons/react/outline";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Flex = styled.div`
   ${tw`flex flex-row`}
@@ -17,7 +18,7 @@ const GridItems = styled.div`
 `;
 
 const H1 = styled.div`
-  ${tw` text-sm md:text-lg  font-sans tracking-wide font-light text-center my-5 sm:my-8`}
+  ${tw`text-sm md:text-lg font-sans tracking-wide font-light text-center my-5 sm:my-8`}
 `;
 
 const Icon = styled.div`
@@ -55,7 +56,6 @@ const index = (props) => {
       setCurHead(newHead);
       generateGroup(newHead);
       if (toogleBtn === 3) {
-        console.log("newDeck: ", newDeck);
         setResult(newDeck[10]);
       }
 
@@ -78,9 +78,22 @@ const index = (props) => {
     setGroup3(array[2].card.map((d) => d));
   };
 
-  const generateViewGroup = (group) => {
-    return group.map((d, i) => <Card key={`card__${d}__${i}`}>{d}</Card>);
-  };
+  const generateViewGroup = useCallback((group) => {
+    return (
+      <AnimatePresence exitBeforeEnter>
+        {group.map((d, i) => (
+          <motion.div
+            key={`card__${d}__${i}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+          >
+            <Card>{d}</Card>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    );
+  }, []);
 
   const handleChooseGroup = (e, group) => {
     let count = toogleBtn + 1;
@@ -88,7 +101,8 @@ const index = (props) => {
     setCurGroup(parseInt(group));
     setToogleBtn(count);
   };
-  const generateTitle = (toogleBtn) => {
+
+  const animatedTitle = useMemo(() => {
     let text = "";
     switch (toogleBtn) {
       case 1:
@@ -101,39 +115,76 @@ const index = (props) => {
         text = "Which group has your number?";
         break;
     }
-    return text;
-  };
+    return (
+      <AnimatePresence exitBeforeEnter>
+        {text.split("").map((char, index) => (
+          <motion.span
+            key={`${toogleBtn}-${index}`}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.03 }}
+            exit={{
+              opacity: 0,
+              transition: { duration: 0.1 },
+            }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </AnimatePresence>
+    );
+  }, [toogleBtn]);
 
   return (
     <div>
-      <Title className="">{generateTitle(toogleBtn)}</Title>
+      <Title className="">{animatedTitle}</Title>
       <Flex>
         <GroupCol>
           <H1>Group 1</H1>
           <GridItems>{generateViewGroup(group1)}</GridItems>
-          <Button onClick={(e) => handleChooseGroup(e, 1)}>
-            <Icon>
-              <CheckIcon />
-            </Icon>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: group1.length * 0.1 }}
+          >
+            <Button onClick={(e) => handleChooseGroup(e, 1)}>
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            </Button>
+          </motion.div>
         </GroupCol>
         <GroupCol>
           <H1>Group 2</H1>
           <GridItems>{generateViewGroup(group2)}</GridItems>
-          <Button onClick={(e) => handleChooseGroup(e, 2)}>
-            <Icon>
-              <CheckIcon />
-            </Icon>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: group2.length * 0.1 }}
+          >
+            <Button onClick={(e) => handleChooseGroup(e, 2)}>
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            </Button>
+          </motion.div>
         </GroupCol>
         <GroupCol>
           <H1>Group 3</H1>
           <GridItems>{generateViewGroup(group3)}</GridItems>
-          <Button onClick={(e) => handleChooseGroup(e, 3)}>
-            <Icon>
-              <CheckIcon />
-            </Icon>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: group3.length * 0.1 }}
+          >
+            <Button onClick={(e) => handleChooseGroup(e, 3)}>
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            </Button>
+          </motion.div>
         </GroupCol>
       </Flex>
     </div>
